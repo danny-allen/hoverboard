@@ -49,7 +49,7 @@ var Effects = Effects || {};
 		this.selected = this.el.find('.'+this.options.targetClass).first();
 
 		//initial position the element
-		this._positionSlider(this.selected, function(){
+		this._positionSlider(this.selected, false, function(){
 			$('.' + self.options.class + '__slider').fadeIn();
 		});
 
@@ -66,7 +66,7 @@ var Effects = Effects || {};
 
 		//create the element (the hoverboard)
 		this.hoverboardElement = $('<'+this.options.hoverboardElementType+' />')
-			.addClass(this.options.class + '__slider');
+			.addClass(this.options.class + '__slider').hide();
 
 		//append the element to the main selector
 		this.el.prepend(this.hoverboardElement);
@@ -78,20 +78,39 @@ var Effects = Effects || {};
 	 *
 	 * Sets the position of the slider based on a selector
 	 */
-	Effects.Hoverboard.prototype._positionSlider = function(targetSelector, callback){
+	Effects.Hoverboard.prototype._positionSlider = function(targetSelector, animate, callback){
 
-		//animate the slider into position
-		$('.' + this.options.class + '__slider').stop().animate({
+		console.log(animate);
 
+		//default of animate is true
+		if(typeof animate === 'undefined'){
+			animate = true;
+		}
+
+		//set position options
+		var options = {
 			left: targetSelector.position().left,
 			width: targetSelector.width()
-		}, this.options.speed, this.options.easing, function(){
+		};
 
+		//animate the slider into position
+		if(animate){
+			$('.' + this.options.class + '__slider').stop().animate(options, this.options.speed, this.options.easing, function(){
+				//run callback if exists
+				if(typeof callback === 'function'){
+					callback();
+				}
+			}); //end of animate
+		
+		//dont animate
+		}else{
+			$('.' + this.options.class + '__slider').css(options);
+			
 			//run callback if exists
 			if(typeof callback === 'function'){
 				callback();
 			}
-		}); //end of animate
+		}
 	};
 
 
