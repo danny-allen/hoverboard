@@ -108,7 +108,7 @@ var Effects = Effects || {};
 		var targetSelector;
 
 		//on mouse over send the slider to the hovered element
-		this.el.find(this.options.hoverboardElementType).not('.' + this.options.selector + '.--ignore').on('mouseenter', function(){
+		this.el.find(this.options.hoverboardElementType).not('.' + this.options.class + '--ignore').on('mouseenter', function(){
 
 			//change target based on mouseenter
 			targetSelector = $(this);
@@ -125,7 +125,7 @@ var Effects = Effects || {};
 		});
 
 		//on mouse out, default back to the selected
-		this.el.find(this.options.hoverboardElementType).not('.' + this.options.selector + '.--ignore').on('mouseout', function(){
+		this.el.find(this.options.hoverboardElementType).not('.' + this.options.class + '--ignore').on('mouseout', function(){
 
 			//if there is a timeout, clear it, we start again!
 			if(timeout !== null){
