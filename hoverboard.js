@@ -80,8 +80,6 @@ var Effects = Effects || {};
 	 */
 	Effects.Hoverboard.prototype._positionSlider = function(targetSelector, animate, callback){
 
-		console.log(animate);
-
 		//default of animate is true
 		if(typeof animate === 'undefined'){
 			animate = true;
