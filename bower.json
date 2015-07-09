@@ -1,24 +1,19 @@
 {
 	"name": "hoverboard",
+	"main": [ "hoverboard.js", "hoverboard.css" ],
 	"version": "1.0",
-	"main": [
-		"hoverboard.js",
-		"hoverboard.css"
-	],
 	"homepage": "https://github.com/danny-allen/hoverboard",
 	"authors": [
 	  "Danny Allen"
 	],
-	"dependencies": {
-		"jquery": ">=1.7"
-	},
-	"description": "Cookie banner with Options. This script was based on Creare's 'Implied Consent' EU Cookie Law Banner v:2.4 but was heavily altered and refactored for more options and to use jQuery.",
+	"description": "JS effect for navigations.",
 	"keywords": [
 		"hoverboard",
 		"css effect",
 		"navigation",
 		"jquery"
 	],
+    "license": "MIT",
 	"ignore": [
 		"**/.*",
 		"node_modules",
@@ -27,4 +22,7 @@
 		"tests",
 		"index.html"
 	],
+	"dependencies": {
+		"jquery": ">=1.7"
+	}
 }
