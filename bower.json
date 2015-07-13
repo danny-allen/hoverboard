@@ -2,7 +2,7 @@
 	"name": "hoverboard",
 	"main": [ "hoverboard.js", "hoverboard.css" ],
 	"version": "1.0",
-	"homepage": "git@github.com:danny-allen/hoverboard.git",
+	"homepage": "https://github.com/danny-allen/hoverboard",
 	"authors": [
 	  "Danny Allen"
 	],
