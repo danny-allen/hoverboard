@@ -24,6 +24,11 @@ var Effects = Effects || {};
 		//extend default options with module options
 		$.extend(this.options, userOptions);
 
+		//check for hoverboard
+		if($('.' + this.options.class).length === 0){
+			return;
+		}
+
 		//initial functionality on instantiation
 		this._init();
 	};
