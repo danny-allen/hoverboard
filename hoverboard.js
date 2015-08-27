@@ -18,7 +18,8 @@ var Effects = Effects || {};
 			targetClass: 'selected',
 			speed: 200,
 			easing: 'swing',
-			intent: 200
+			intent: 200,
+			debug: false
 		};
 		
 		//extend default options with module options
@@ -113,6 +114,20 @@ var Effects = Effects || {};
 			if(typeof callback === 'function'){
 				callback();
 			}
+		}
+	};
+	
+
+	/**
+	 * debug
+	 *
+	 * Useful if you are trying to debug with multiple instances of Hoverboard.
+	 */
+	Effects.Hoverboard.prototype.debug = function(val){
+
+		//if we're debugging
+		if(this.options.debug){
+			console.log('DEBUG: '+ val);
 		}
 	};
 
