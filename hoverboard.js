@@ -54,6 +54,11 @@ var Effects = Effects || {};
 		//set the currently selected item (or active)
 		this.selected = this.el.find('.'+this.options.targetClass).first();
 
+		//if there is no selected element... return
+		if(this.selected.length < 1){
+			return;
+		}
+
 		//initial position the element
 		this._positionSlider(this.selected, false, function(){
 			$('.' + self.options.class + '__slider').fadeIn();
