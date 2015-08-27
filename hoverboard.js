@@ -182,6 +182,15 @@ var Effects = Effects || {};
 				self._positionSlider(self.selected);
 			}, self.options.intent);
 		});
+
+		//on window resize, position the slider appropriatly.
+		$(window).on('resize', function(){
+
+			//run animation but delay it
+			timeout = setTimeout(function(){
+				self._positionSlider(self.selected);
+			}, self.options.intent);
+		});
 	};
 
 
