@@ -149,8 +149,11 @@ var Effects = Effects || {};
 		var timeout = null;
 		var targetSelector;
 
+		//the selectors we don't want to match
+		var notThis = '.' + this.options.class + '--ignore, ' + '.' + this.options.class + '--ignore ' + this.options.hoverboardElementType;
+
 		//on mouse over send the slider to the hovered element
-		this.el.find(this.options.hoverboardElementType).not('.' + this.options.class + '--ignore').on('mouseenter', function(){
+		this.el.find('> '+ this.options.hoverboardElementType).not(notThis).on('mouseenter', function(){
 
 			//change target based on mouseenter
 			targetSelector = $(this);
@@ -167,7 +170,7 @@ var Effects = Effects || {};
 		});
 
 		//on mouse out, default back to the selected
-		this.el.find(this.options.hoverboardElementType).not('.' + this.options.class + '--ignore').on('mouseout', function(){
+		this.el.find('> '+ this.options.hoverboardElementType).not(notThis).on('mouseout', function(){
 
 			//if there is a timeout, clear it, we start again!
 			if(timeout !== null){
