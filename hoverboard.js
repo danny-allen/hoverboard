@@ -71,6 +71,7 @@ var Effects = Effects || {};
 
 	/**
 	 * _createHoverboardElement
+	 * 
 	 * and set initial styles
 	 */
 	Effects.Hoverboard.prototype._createHoverboardElement = function(){
