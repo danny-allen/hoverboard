@@ -54,7 +54,7 @@ var Effects = Effects || {};
 		//set the currently selected item (or active)
 		this.selected = this.el.find('.'+this.options.targetClass).first();
 
-		//if there is no selected element... return
+		//if there is no selected element! return
 		if(this.selected.length < 1){
 			return;
 		}
@@ -64,7 +64,7 @@ var Effects = Effects || {};
 			$('.' + self.options.class + '__slider').fadeIn();
 		});
 
-		//now set the event handlers to reposition the element
+		//now set the event handlers to reposition the element etc...
 		this._eventHandlers();
 	};
 
@@ -97,6 +97,8 @@ var Effects = Effects || {};
 			animate = true;
 		}
 
+		this.debug(targetSelector);
+
 		//set position options
 		var options = {
 			left: targetSelector.position().left,
@@ -122,7 +124,7 @@ var Effects = Effects || {};
 			}
 		}
 	};
-	
+
 
 	/**
 	 * debug
@@ -147,7 +149,11 @@ var Effects = Effects || {};
 
 		//reference this
 		var self = this;
+
+		//delay for the event handler main feature
 		var timeout = null;
+
+		//the selector we've found in the event handler
 		var targetSelector;
 
 		//the selectors we don't want to match
@@ -190,6 +196,15 @@ var Effects = Effects || {};
 			//run animation but delay it
 			timeout = setTimeout(function(){
 				self._positionSlider(self.selected);
+			}, self.options.intent);
+		});
+
+		//on window load, position the slider appropriatly - without animation.
+		$(window).on('load', function(){
+
+			//run animation but delay it
+			timeout = setTimeout(function(){
+				self._positionSlider(self.selected, false);
 			}, self.options.intent);
 		});
 	};
